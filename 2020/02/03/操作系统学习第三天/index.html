@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>操作系统的启动过程 - 久诗的小窝</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="久诗,"> 
+    <meta name="description" content="本人第一次写的blog，有许多不足，欢迎大佬提意见,操作系统启动过程
+BIOS和主引导记录MBR
+
+实模式（实地址模式，real mode）
+
+程序按照8086寻址方法访问0h—FFFFFh（1MB）空间
+寻址方式：物理地址（20位）=段地址：偏移地,"> 
+    <meta name="author" content="久诗"> 
+    <link rel="alternative" href="atom.xml" title="久诗的小窝" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">久诗的小窝</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">操作系统的启动过程</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">操作系统的启动过程</h1>
+        <div class="stuff">
+            <span>二月 03, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="操作系统启动过程"><a href="#操作系统启动过程" class="headerlink" title="操作系统启动过程"></a>操作系统启动过程</h3><ol>
+<li><p>BIOS和主引导记录MBR</p>
+<ul>
+<li><p>实模式（实地址模式，real mode）</p>
+<ul>
+<li>程序按照8086寻址方法访问0h—FFFFFh（1MB）空间</li>
+<li>寻址方式：物理地址（20位）=段地址：偏移地址</li>
+<li>CPU单任务运行</li>
+</ul>
+</li>
+<li><p>保护模式（内存保护模式，protect mode）</p>
+<ul>
+<li><p>寻址方式：段（32位）和偏移量（32位），寻址4GB空间</p>
+<p>段的属性：起始地址，存取属性，权限级别。。。</p>
+</li>
+<li><p>段页式寻址机制（段，页）</p>
+</li>
+<li><p>虚拟地址，进程，封闭空间</p>
+</li>
+<li><p>应用程序和操作系统的运行环境都被保护</p>
+</li>
+<li><p>CPU支持多任务</p>
+</li>
+</ul>
+</li>
+<li><p>实模式存取的1M空间</p>
+<ul>
+<li><p>前面640k【00000——9FFFF】：基本内存</p>
+</li>
+<li><p>中间128k【A0000——BFFFF】：显卡显存</p>
+</li>
+<li><p>末尾256k【C0000——FFFFF】：BIOS</p>
+<p>C0000——C7FFF：显示卡BIOS</p>
+<p>C8000——CBFFF：IDE控制器BIOS</p>
+<p>F0000——FFFFF：最后64kb，系统BIOS（重点）</p>
+</li>
+</ul>
+</li>
+<li><p>系统BIOS</p>
+<ul>
+<li><p>Basic I/O System(FIrmware,固件)</p>
+<ul>
+<li><p>基本输入/输出系统</p>
+</li>
+<li><p>位置：F0000-FFFFF</p>
+</li>
+<li><p>功能：</p>
+<ol>
+<li><p>系统启动配置</p>
+<p><img src="https://i.loli.net/2020/02/03/ZYT2hjw3OpqsRHF.png" alt="批注 2020-02-03 163049.png"></p>
+</li>
+<li><p>基本的设备I/O服务</p>
+<p><img src="https://i.loli.net/2020/02/03/XsehPQyqMw3a5Kb.png" alt="批注 2020-02-03 163339.png"></p>
+<p><img src="https://i.loli.net/2020/02/03/zkmHwVWp1qBKX7A.png" alt="批注 2020-02-03 163237.png"></p>
+<p><img src="https://i.loli.net/2020/02/03/CLj7mWUnezOATBh.png" alt="批注 2020-02-03 163755.png"></p>
+</li>
+<li><p>系统的加电自检和启动</p>
+<ul>
+<li><p>加电自检POST</p>
+<ol>
+<li>Power On Self-Test（加电自检）</li>
+<li>初始化基本硬件<ul>
+<li>CPU，内存，显卡</li>
+</ul>
+</li>
+<li>自检正常不提示，错误则通过喇叭提示</li>
+</ol>
+</li>
+<li><p>按下PowerOn或者Reset键执行第一条指令</p>
+<ol>
+<li><p>执行FFFF0处的指令</p>
+<p><img src="https://i.loli.net/2020/02/03/srOHhQLq9oGWIyd.png" alt="批注 2020-02-03 164304.png"></p>
+</li>
+</ol>
+</li>
+<li><p>Post之后</p>
+<ol>
+<li>查找显卡BIOS，调用显卡BIOS</li>
+<li>依次查找其他设备执行相应设备的BIOS</li>
+<li>显示启动画面</li>
+<li>从硬盘/软盘/光驱/U盘读入OS</li>
+<li>OS启动后，由OS接管计算机</li>
+</ol>
+</li>
+<li><p>主启动记录MBR</p>
+<ul>
+<li>MBR<ol>
+<li>存放在硬盘/软盘的首扇区</li>
+<li>存放和OS启动的相关信息（Main Boot Record）</li>
+<li>512 BYTES</li>
+<li>结束：0xAA55h</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>MBR/硬盘分区/格式化</p>
+<ul>
+<li><img src="https://i.loli.net/2020/02/03/Bfcey9hLFE18UqK.png" alt="批注 2020-02-03 165420.png"></li>
+</ul>
+</li>
+<li><p>BIOS和MBR程序运行过程</p>
+<ol>
+<li>POST—&gt;CMOS设置（硬盘启动）—&gt;读取MBR—&gt;控制权交给MBR</li>
+<li>MBR读取分区表，找到其中的活动分区，并确认其他的分区都不是活动分区。MBR读取活动分区的第一个分区（分区引导记录PBR）并把它加载到内存中去</li>
+<li>PBR继续控制后面的引导进程</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/536623501.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统启动过程"><span class="toc-number">1.</span> <span class="toc-text">操作系统启动过程</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

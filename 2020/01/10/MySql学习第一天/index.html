@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>数据库第一节 - 久诗的小窝</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="久诗,"> 
+    <meta name="description" content="本人第一次写的blog，有许多不足，欢迎大佬提意见,数据库的好处
+实现数据持久化（和文件一样）
+使用完整的管理系统统一管理，易于查询，方便管理。
+
+数据库的概念
+DB:数据库（database）：存储数据的仓库，它保存了一系列有组织的数据。（为什么要,"> 
+    <meta name="author" content="久诗"> 
+    <link rel="alternative" href="atom.xml" title="久诗的小窝" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">久诗的小窝</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">数据库第一节</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">数据库第一节</h1>
+        <div class="stuff">
+            <span>一月 10, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="数据库的好处"><a href="#数据库的好处" class="headerlink" title="数据库的好处"></a>数据库的好处</h3><ol>
+<li>实现数据<strong>持久化</strong>（和文件一样）</li>
+<li>使用完整的管理系统<strong>统一管理</strong>，易于查询，方便管理。</li>
+</ol>
+<h3 id="数据库的概念"><a href="#数据库的概念" class="headerlink" title="数据库的概念"></a>数据库的概念</h3><ol>
+<li><p>DB:数据库（database）：存储数据的仓库，它保存了一系列<strong>有组织的</strong>数据。（为什么要是有组织的，因为存储数据的仓库里的数据是需要再次拿出来使用的。）</p>
+</li>
+<li><p>DBMS:数据库管理系统（database management system）（简称数据库软件或者数据库产品）。数据库是通过DBMS创建和操作的容器。数据库管理系统可以对<strong>数据库</strong>里的数据进行操作（增删改查等）。</p>
+<p>数据库软件（数据库管理里系统）的好处：</p>
+<ul>
+<li><strong>可将数据持久化到硬盘</strong></li>
+<li><strong>可存储大容量数据</strong></li>
+<li><strong>方便检索</strong></li>
+<li>保证数据的一致性、完整性</li>
+<li>安全、可共享</li>
+<li>通过组合分析，可以产生新数据</li>
+</ul>
+</li>
+<li><p>SQL：结构化查询语言（structure query language）：专门用来与数据库<strong>通信</strong>的语言。</p>
+<p>SQL的优点：</p>
+<ul>
+<li>不是某个特定数据库供应商专有的语言，几乎所有的DBMS都支持SQL。</li>
+<li>简单易学</li>
+<li>是一种强有力的语言，灵活使用其语言元素，可以进行非常复杂和高级的数据库操作。</li>
+</ul>
+</li>
+</ol>
+<h3 id="数据库存储数据的特点"><a href="#数据库存储数据的特点" class="headerlink" title="数据库存储数据的特点"></a>数据库存储数据的特点</h3><ol>
+<li>将数据放到表中，表再放到库里。</li>
+<li>一个数据库中可以有多个表，每个表都有一个自己的名字，用来标识自己。表名具有<strong>唯一性</strong>。</li>
+<li>表具有一些特性，这些特性定义了数据在表中如何存储，类似java里的“类”的设计。（面向对象）</li>
+<li>表由列组成，在数据库里称为<strong>字段</strong>，所有表都是由一个或多个列组成的，每一个列类似java里的类的“属性”。</li>
+<li>表中的数据都是<strong>按行存储</strong>的，每一行类似java里的“对象”。</li>
+<li>orm：(object relational mapping)对象关系映射：一个表和一个类是一个一一对应的关系（此处不详说）</li>
+<li><ul>
+<li>表——类</li>
+<li>列、字段——属性</li>
+<li>行——对象</li>
+</ul>
+</li>
+</ol>
+<h3 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h3><ol>
+<li><p>优点：</p>
+<ul>
+<li>成本低：开放源代码，一般可以免费使用</li>
+<li>性能高：执行很快</li>
+<li>简单：很容易安装和使用</li>
+</ul>
+</li>
+<li><p>DBMS分为两类：</p>
+<ul>
+<li><p>基于共享文件系统的DBMS（Access）</p>
+</li>
+<li><p>基于客户机——服务器的DBMS C/S client(客户端)/server（服务端）</p>
+<p>（MySql、Orcale、SqlServer）</p>
+</li>
+</ul>
+</li>
+<li><p>mysql的数据管理软件是C/S结构，底层是TCP/IP协议的程序</p>
+<p>服务器端，先启动，有一个端口号，监听/等待客户端的连接。</p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/22645196.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库的好处"><span class="toc-number">1.</span> <span class="toc-text">数据库的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库的概念"><span class="toc-number">2.</span> <span class="toc-text">数据库的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库存储数据的特点"><span class="toc-number">3.</span> <span class="toc-text">数据库存储数据的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySql"><span class="toc-number">4.</span> <span class="toc-text">MySql</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>操作系统基本类型 - 久诗的小窝</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="久诗,"> 
+    <meta name="description" content="本人第一次写的blog，有许多不足，欢迎大佬提意见,操作系统基本类型批处理操作系统
+作业处理流程
+
+作业提交
+
+作业执行
+
+作业完成：作业的完成
+
+
+
+
+
+单道和多道的比较
+
+内存使用：
+单道每次一个作业
+多道每次多个作业（充分利用内存）
+
+作业次序,"> 
+    <meta name="author" content="久诗"> 
+    <link rel="alternative" href="atom.xml" title="久诗的小窝" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">久诗的小窝</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">操作系统基本类型</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">操作系统基本类型</h1>
+        <div class="stuff">
+            <span>二月 29, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="操作系统基本类型"><a href="#操作系统基本类型" class="headerlink" title="操作系统基本类型"></a>操作系统基本类型</h3><h5 id="批处理操作系统"><a href="#批处理操作系统" class="headerlink" title="批处理操作系统"></a>批处理操作系统</h5><ol>
+<li><p>作业处理流程</p>
+<ul>
+<li><p>作业提交</p>
+</li>
+<li><p>作业执行</p>
+</li>
+<li><p>作业完成：作业的完成</p>
+<p><img src="https://i.loli.net/2020/02/29/3fu5F4JYVCmIUpO.png" alt="1.png"></p>
+<p><img src="https://i.loli.net/2020/02/29/3pMSmcTwRazku7n.png" alt="2.png"></p>
+</li>
+</ul>
+</li>
+<li><p>单道和多道的比较</p>
+<ul>
+<li><p>内存使用：</p>
+<p>单道每次一个作业</p>
+<p>多道每次多个作业（充分利用内存）</p>
+</li>
+<li><p>作业次序：</p>
+<p>单道按顺序，先进先出</p>
+<p>多道无确定次序</p>
+</li>
+<li><p><strong>多道程序系统</strong>和<strong>多处理机系统</strong>的区别：</p>
+<ul>
+<li>前者指多个程序同时在内存中交替运行</li>
+<li>后者指多个处理器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>主要特征</p>
+<ul>
+<li>用户<strong>脱机使用计算机</strong>：作业提交后知道获得结果之前，用户无法与作业交互</li>
+<li>作业成批处理</li>
+<li><strong>多道程序并行</strong>:充分利用系统资源。资源利用率、作业吞吐量</li>
+</ul>
+</li>
+<li><p>多道批处理资源利用率特征</p>
+<ul>
+<li>多道批处理系统的资源利用率特征是基于各作业对系统资源的需求差异得到的</li>
+</ul>
+</li>
+<li><p>多道批处理系统上的技术</p>
+<ul>
+<li><strong>作业调度</strong>：作业的现场保存和恢复——上下文切换</li>
+<li><strong>资源共享</strong>：资源的竞争和同步——<strong>互斥</strong>和<strong>同步</strong>机制</li>
+<li><strong>内存使用</strong>：提高内存使用效率（为当前由CPU执行的程序提供足够的内存）——<strong>覆盖</strong>，<strong>交换</strong>和<strong>虚拟存储</strong></li>
+<li><strong>内存保护</strong>：系统存储区和各应用存储区不可冲突——存储保护</li>
+<li><strong>出现：作业管理、处理及管理、存储管理、设备管理、文件管理</strong></li>
+</ul>
+</li>
+</ol>
+<h5 id="分时操作系统"><a href="#分时操作系统" class="headerlink" title="分时操作系统"></a>分时操作系统</h5><ol>
+<li>特性<ul>
+<li><strong>多路性</strong>：多个用户同时工作</li>
+<li><strong>独立性</strong>：各用户独立操作，互不干扰</li>
+<li><strong>交互性</strong>：系统能及时对用户的操作进行响应，显著提高调试和修改程序的效率：缩短了周转时间（对批处理的改进）</li>
+</ul>
+</li>
+</ol>
+<h5 id="实时操作系统"><a href="#实时操作系统" class="headerlink" title="实时操作系统"></a>实时操作系统</h5><ol>
+<li>主要特征<ul>
+<li><strong>实时性</strong></li>
+<li><strong>可靠性</strong></li>
+<li><strong>过载保护</strong>：缓冲区排队，丢弃某些任务，动态调整任务周期（==过载是指进入系统的任务书目超出系统的处理能力==）</li>
+<li><strong>高度可靠性和安全性</strong>：容错能力（如故障自动复位）和冗余备份（双机，关键部件）</li>
+</ul>
+</li>
+</ol>
+<h5 id="实时操作系统与批处理系统和分时系统的区别"><a href="#实时操作系统与批处理系统和分时系统的区别" class="headerlink" title="实时操作系统与批处理系统和分时系统的区别"></a>实时操作系统与批处理系统和分时系统的区别</h5><ol>
+<li><strong>专用系统</strong>：许多实时系统时专用系统，而批处理与分时系统通常是通用系统</li>
+<li><strong>实时控制</strong>：实时系统用于控制实时过程，要求对外部事件的迅速响应，具有较强的中断处理机制</li>
+<li><strong>高可靠性</strong>：实时系统用于控制重要过程，要求高可靠度，具有较高冗余。如双机系统</li>
+<li><strong>利用率</strong>：不高</li>
+<li><strong>是事件驱动和队列驱动</strong>：实时系统的工作方式：接受外部消息，分析消息，调用相应处理程序进行处理</li>
+<li>可与通用系统结合成通用实时系统：实时处理前台作业，批处理为后台作业</li>
+</ol>
+<h5 id="多处理机操作系统"><a href="#多处理机操作系统" class="headerlink" title="多处理机操作系统"></a>多处理机操作系统</h5><ol>
+<li>多处理机系统的特点<ul>
+<li><strong>增加系统的吞吐量</strong>：N个处理器加速比达不到N倍（额外的开销，算法的并行化）</li>
+<li><strong>提高系统可靠性</strong>：故障时系统降级运行</li>
+</ul>
+</li>
+<li>类型<ul>
+<li><strong>紧密耦合</strong>：各处理机之间通过快速总线或开关阵列相连，共享内存，整体系统由一个统一的OS管理（一个OS核心）</li>
+<li><strong>松散耦合</strong>：各处理机带有各自的存储器、I/O设备和操作系统通过通道或通信线路相连。每个处理机上独立运行OS</li>
+<li><strong>非对称式多处理</strong>：又称主从模式。<ul>
+<li>主处理器：只有一个，运行OS。管理整个系统的资源，为从处理器分配任务</li>
+<li>从处理器：可有多个，执行应用程序或I/O处理</li>
+<li>特点：不同性质任务的负载不均，可靠性不够高，不易移植（通常要求硬件也是”非对称“）</li>
+</ul>
+</li>
+<li><strong>对称式多处理</strong>：OS交替在各个处理器上执行。任务负载较为平均，性能调节容易——”傻瓜式“</li>
+</ul>
+</li>
+</ol>
+<h5 id="网络操作系统"><a href="#网络操作系统" class="headerlink" title="网络操作系统"></a>网络操作系统</h5><ol>
+<li>通过通信设施相互连接，完成<strong>信息交替、资源共享、互操作、协同工作</strong>等功能</li>
+<li>功能<ul>
+<li><strong>通常操作系统的功能</strong>：处理机管理、存储器管理、设备管理、文件管理等</li>
+<li><strong>网络通信管理</strong>：通过网络协议进行高效、可靠的数据传输</li>
+<li><strong>网络资源管理</strong>：协调各用户使用</li>
+<li><strong>网络服务</strong>：文件和设备共享，信息发布</li>
+<li><strong>网络管理</strong>：安全管理、故障管理、性能管理</li>
+<li><strong>互操作</strong>：直接控制对方比交换数据更为困难</li>
+</ul>
+</li>
+</ol>
+<h5 id="分布式操作系统"><a href="#分布式操作系统" class="headerlink" title="分布式操作系统"></a>分布式操作系统</h5><ol>
+<li>分布式系统：处理和控制的分散（相对于集中式系统）</li>
+<li>分布式系统是以计算机网络为基础的，它的基本特征是处理上的分布，即功能和任务的分布</li>
+<li>分布式操作系统的<strong>所有系统任务可在系统中任何处理机上运行</strong>，自动实现全系统范围内的<strong>任务分配</strong>并自动调度各处理机的工作负载</li>
+</ol>
+<h5 id="分布式操作系统与网络操作系统的比较"><a href="#分布式操作系统与网络操作系统的比较" class="headerlink" title="分布式操作系统与网络操作系统的比较"></a>分布式操作系统与网络操作系统的比较</h5><ol>
+<li><strong>耦合程度</strong>：<ul>
+<li>分布式：紧密耦合系统</li>
+<li>网络通常容许异种OS互连</li>
+</ul>
+</li>
+<li><strong>并行性</strong>：<ul>
+<li>分布式OS可以将一个进程分散在各机上并行执行”进程迁移“</li>
+<li>网络则各机上的进程独立</li>
+</ul>
+</li>
+<li><strong>透明性</strong>：用户是否知道或指定资源在哪个机器上（如CPU、内存或外设）<ul>
+<li>分布式系统的网络资源对网络资源用户透明，用户不了解所占有资源的位置</li>
+<li>网络操作系统中对网络资源的使用要有用户明确指定</li>
+</ul>
+</li>
+<li><strong>健壮性</strong>：分布式系统要求更强的容错能力（工作时系统重构）</li>
+</ol>
+<h5 id="个人计算机操作系统"><a href="#个人计算机操作系统" class="headerlink" title="个人计算机操作系统"></a>个人计算机操作系统</h5><ol>
+<li>（PS：此处不做过多解释）</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://link.hhtjim.com/163/22780156.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统基本类型"><span class="toc-number">1.</span> <span class="toc-text">操作系统基本类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#批处理操作系统"><span class="toc-number">1.0.1.</span> <span class="toc-text">批处理操作系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分时操作系统"><span class="toc-number">1.0.2.</span> <span class="toc-text">分时操作系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实时操作系统"><span class="toc-number">1.0.3.</span> <span class="toc-text">实时操作系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实时操作系统与批处理系统和分时系统的区别"><span class="toc-number">1.0.4.</span> <span class="toc-text">实时操作系统与批处理系统和分时系统的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多处理机操作系统"><span class="toc-number">1.0.5.</span> <span class="toc-text">多处理机操作系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网络操作系统"><span class="toc-number">1.0.6.</span> <span class="toc-text">网络操作系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分布式操作系统"><span class="toc-number">1.0.7.</span> <span class="toc-text">分布式操作系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分布式操作系统与网络操作系统的比较"><span class="toc-number">1.0.8.</span> <span class="toc-text">分布式操作系统与网络操作系统的比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人计算机操作系统"><span class="toc-number">1.0.9.</span> <span class="toc-text">个人计算机操作系统</span></a></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
